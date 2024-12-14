@@ -27,7 +27,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "test": "NODE_NO_WARNINGS=1 jest"
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": [

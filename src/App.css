@@ -48,19 +48,22 @@
 
 .number-of-events {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center; /* Centers horizontally */
+  justify-content: center; /* Centers vertically if needed */
+  margin-top: 20px;
 }
 
 .number-of-events label {
   font-size: 16px;
   font-weight: bold;
+  margin-bottom: 10px; /* Adds spacing between label and input */
 }
 
 .number-of-events input {
-  width: 60px;
+  width: 80px;
   padding: 5px;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -68,4 +71,29 @@
   color: red;
   font-size: 12px;
   margin-top: 5px;
+  text-align: center;
+}
+
+
+.event {
+  border: 2px solid #61dafb; /* Blue border */
+  border-radius: 15px; /* Rounded corners */
+  padding: 15px; /* Add some padding inside the border */
+  margin: 10px 0; /* Space between events */
+  background-color: #f9f9f9; /* Light background for contrast */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth animations */
+}
+
+.event:hover {
+  transform: scale(1.02); /* Slightly enlarge on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+.event-list {
+  max-width: 800px;
+  margin: 0 auto; /* Center the list */
+  padding: 20px; /* Add padding */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between events */
 }

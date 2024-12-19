@@ -19,9 +19,10 @@ const App = () => {
 
   const fetchData = async () => {
     const allEvents = await getEvents();
-    const filteredEvents = currentCity === "See all cities" 
-      ? allEvents 
-      : allEvents.filter(event => event.location === currentCity);
+    const filteredEvents =
+      currentCity === "See all cities"
+        ? allEvents
+        : allEvents.filter(event => event.location === currentCity);
     setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(extractLocations(allEvents));
   };
@@ -29,21 +30,26 @@ const App = () => {
   return (
     <div className="App">
       <div className="controls">
+        {/* CitySearch remains at the top */}
         <CitySearch 
           allLocations={allLocations} 
           setCurrentCity={setCurrentCity} 
         />
-        <NumberOfEvents 
-          setErrorAlert={setErrorAlert}
-          currentNOE={currentNOE}
-          setCurrentNOE={setCurrentNOE}
-        />
       </div>
+
+      {/* EventList appears in the middle */}
       <EventList 
         events={events} 
       />
+
+      {/* NumberOfEvents moved below the EventList */}
+      <NumberOfEvents 
+        setErrorAlert={setErrorAlert}
+        currentNOE={currentNOE}
+        setCurrentNOE={setCurrentNOE}
+      />
     </div>
   );
-}
+};
 
 export default App;

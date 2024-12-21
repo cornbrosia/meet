@@ -2,7 +2,7 @@
   "name": "meet",
   "version": "0.1.0",
   "private": true,
-  "homepage": "cornbrosia.github.io/test_app",
+  "homepage": "cornbrosia.github.io/test_app", // does this need to change?
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

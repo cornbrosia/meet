@@ -14,40 +14,33 @@ const App = () => {
   const [errorAlert, setErrorAlert] = useState("");
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const allEvents = await getEvents();
+        const filteredEvents =
+          currentCity === "See all cities"
+            ? allEvents
+            : allEvents.filter(event => event.location === currentCity);
+        setEvents(filteredEvents.slice(0, currentNOE));
+        setAllLocations(extractLocations(allEvents));
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    };
+
     fetchData();
   }, [currentCity, currentNOE]);
 
-  const fetchData = async () => {
-    const allEvents = await getEvents();
-    const filteredEvents =
-      currentCity === "See all cities"
-        ? allEvents
-        : allEvents.filter(event => event.location === currentCity);
-    setEvents(filteredEvents.slice(0, currentNOE));
-    setAllLocations(extractLocations(allEvents));
-  };
-
   return (
     <div className="App">
-      <div className="controls">
-        {/* CitySearch remains at the top */}
-        <CitySearch 
-          allLocations={allLocations} 
-          setCurrentCity={setCurrentCity} 
-        />
-      </div>
-
-      {/* EventList appears in the middle */}
-      <EventList 
-        events={events} 
-      />
-
-      {/* NumberOfEvents moved below the EventList */}
-      <NumberOfEvents 
-        setErrorAlert={setErrorAlert}
+      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
+      <EventList events={events} />
+      <NumberOfEvents
         currentNOE={currentNOE}
         setCurrentNOE={setCurrentNOE}
+        setErrorAlert={setErrorAlert}
       />
+      {errorAlert && <p className="error-alert">{errorAlert}</p>}
     </div>
   );
 };

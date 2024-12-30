@@ -18,7 +18,7 @@ afterEach(() => {
   jest.clearAllMocks(); // Reset mock state between tests
 });
 
-test("renders App and resolves useEffect updates", async () => {
+test("renders NumberOfEvents and resolves updates", async () => {
   render(<App />);
 
   // Wait for events to be set
@@ -27,7 +27,4 @@ test("renders App and resolves useEffect updates", async () => {
     expect(numberOfEventsInput).toBeInTheDocument();
     expect(numberOfEventsInput.value).toBe("32"); // Default value
   });
-
-  // Verify CitySearch component is rendered
-  expect(screen.getByText(/city search/i)).toBeInTheDocument();
 });

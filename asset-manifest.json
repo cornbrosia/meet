@@ -1,17 +1,16 @@
 {
   "files": {
-    "main.css": "/cornbrosia.github.io/test_app/static/css/main.f855e6bc.css",
-    "main.js": "/cornbrosia.github.io/test_app/static/js/main.2e2129f5.js",
-    "static/js/453.4a9980c6.chunk.js": "/cornbrosia.github.io/test_app/static/js/453.4a9980c6.chunk.js",
-    "service-worker.js": "/cornbrosia.github.io/test_app/service-worker.js",
-    "static/media/logo.svg": "/cornbrosia.github.io/test_app/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
-    "index.html": "/cornbrosia.github.io/test_app/index.html",
-    "main.f855e6bc.css.map": "/cornbrosia.github.io/test_app/static/css/main.f855e6bc.css.map",
-    "main.2e2129f5.js.map": "/cornbrosia.github.io/test_app/static/js/main.2e2129f5.js.map",
-    "453.4a9980c6.chunk.js.map": "/cornbrosia.github.io/test_app/static/js/453.4a9980c6.chunk.js.map"
+    "main.css": "/meet/static/css/main.c44d4be5.css",
+    "main.js": "/meet/static/js/main.3a944809.js",
+    "static/js/453.4a9980c6.chunk.js": "/meet/static/js/453.4a9980c6.chunk.js",
+    "service-worker.js": "/meet/service-worker.js",
+    "index.html": "/meet/index.html",
+    "main.c44d4be5.css.map": "/meet/static/css/main.c44d4be5.css.map",
+    "main.3a944809.js.map": "/meet/static/js/main.3a944809.js.map",
+    "453.4a9980c6.chunk.js.map": "/meet/static/js/453.4a9980c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.2e2129f5.js"
+    "static/css/main.c44d4be5.css",
+    "static/js/main.3a944809.js"
   ]
 }

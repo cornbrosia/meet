@@ -47,7 +47,7 @@ export const getEvents = async () => {
   if (token) {
     removeQuery();
     const url =
-      "https://us70cebp6c.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url" +
+      "https://us70cebp6c.execute-api.us-east-1.amazonaws.com/dev/api/get-events" +
       "/" +
       token;
     const response = await fetch(url);

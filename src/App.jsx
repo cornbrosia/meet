@@ -27,6 +27,7 @@ const App = () => {
         console.error("Error fetching events:", error);
       }
     };
+    
 
     fetchData();
   }, [currentCity, currentNOE]);

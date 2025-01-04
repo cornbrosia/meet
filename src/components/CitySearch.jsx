@@ -13,12 +13,16 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     const value = event.target.value;
     const filteredLocations = allLocations.filter((location) =>
       location.toUpperCase().includes(value.toUpperCase())
+    
     );
-
+    
     setQuery(value);
     setSuggestions(filteredLocations);
-  };
+    
 
+
+  };
+  
   const handleItemClicked = (event) => {
     const value = event.target.textContent;
     setQuery(value);

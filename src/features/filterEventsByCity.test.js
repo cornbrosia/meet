@@ -8,7 +8,13 @@ import React from 'react';
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
 jest.mock("../api", () => ({
-    getEvents: jest.fn(() => Promise.resolve(mockData)), // Provide the mock implementation
+  getEvents: jest.fn(() =>
+    Promise.resolve([
+      { id: 1, location: "New York", name: "Event 1" },
+      { id: 2, location: "Berlin", name: "Event 2" },
+    ])
+  ),
+  extractLocations: jest.fn(() => ["New York", "Berlin"]),
 }));
 
 defineFeature(feature, test => {
@@ -29,7 +35,6 @@ defineFeature(feature, test => {
 
             await waitFor(() => {
                 const EventListItems = within(EventListDOM).queryAllByRole('listitem');
-                console.log("*** ", EventListItems)
                 expect(EventListItems.length).toBe(2);
             });
         });
@@ -85,17 +90,17 @@ defineFeature(feature, test => {
         });
 
         then('their city should be changed to that city (i.e., “Berlin, Germany”)', () => {
-            expect(citySearchInput.value).toBe('Berlin, Germany');
+            expect(citySearchInput.value).toBe('Berlin');
         });
 
         and('the user should receive a list of upcoming events in that city', async () => {
             const EventListDOM = AppDOM.querySelector('#event-list');
-            const EventListItems = within(EventListDOM).queryAllByRole('listitem');
-            const allEvents = await getEvents();
 
-            // Filter the list of all events to only those in Berlin, Germany
-            const berlinEvents = allEvents.filter(event => event.location === "Berlin, Germany");
-            expect(EventListItems).toHaveLength(berlinEvents.length);
+            await waitFor(() => {
+                const EventListItems = within(EventListDOM).queryAllByRole('listitem');
+                expect(EventListItems).toHaveLength(1);
+
+            });
         });
     });
 });

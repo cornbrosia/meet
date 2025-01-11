@@ -1,36 +1,28 @@
 import puppeteer from 'puppeteer';
 
-describe('show/hide an event details', () => {
-    let browser;
-    let page;
+describe('show/hide event details', () => {
+  let browser;
+  let page;
 
-    beforeAll(async () => {
-        // Launch the browser once before all tests
-        browser = await puppeteer.launch({ headless: true });
-    });
+  beforeAll(async () => {
+    browser = await puppeteer.launch();
+    page = await browser.newPage();
+    await page.goto('http://localhost:3000/');
+    await page.waitForSelector('.event');
+  });
 
-    afterAll(async () => {
-        // Close the browser after all tests
-        if (browser) await browser.close();
-    });
+  afterAll(async () => {
+    await browser.close();
+  });
 
-    beforeEach(async () => {
-        // Open a new page for each test
-        page = await browser.newPage();
-        await page.goto('http://localhost:5173/');
-    });
+  test('An event element is collapsed by default', async () => {
+    const eventDetails = await page.$('.event .event-details');
+    expect(eventDetails).toBeNull();
+  });
 
-    afterEach(async () => {
-        // Close the page after each test
-        if (page) await page.close();
-    });
-
-    test('An event element is collapsed by default', async () => {
-        // Wait for the first event to render
-        await page.waitForSelector('.event');
-
-        // Check if the details section is not visible
-        const eventDetails = await page.$('.event .details');
-        expect(eventDetails).toBeNull(); // Assuming .details doesn't exist when collapsed
-    });
+  test('User can expand an event to see details', async () => {
+    await page.click('.event .show-details-btn');
+    const eventDetails = await page.$('.event .event-details');
+    expect(eventDetails).toBeDefined();
+  });
 });

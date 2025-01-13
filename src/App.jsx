@@ -41,12 +41,13 @@ const App = () => {
        {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
      </div>
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
-      <EventList events={events} />
       <NumberOfEvents
         currentNOE={currentNOE}
         setCurrentNOE={setCurrentNOE}
         setErrorAlert={setErrorAlert}
       />
+      <EventList events={events} />
+      
       {errorAlert && <p className="error-alert">{errorAlert}</p>}
     </div>
   );

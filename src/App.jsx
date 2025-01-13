@@ -4,7 +4,7 @@ import CitySearch from './components/CitySearch';
 import NumberOfEvents from './components/NumberOfEvents';
 import { useEffect, useState } from 'react';
 import { extractLocations, getEvents } from './api';
-import { InfoAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert } from './components/Alert';
 
 import React from 'react';
 
@@ -48,7 +48,8 @@ const App = () => {
       />
       <EventList events={events} />
       
-      {errorAlert && <p className="error-alert">{errorAlert}</p>}
+      {errorAlert && <ErrorAlert text={errorAlert} />}
+
     </div>
   );
 };

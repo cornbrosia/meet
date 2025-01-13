@@ -20,10 +20,13 @@ class Alert extends Component {
       borderColor: this.color,
       textAlign: "center",
       fontSize: "14px",
-      margin: "10px 0",
+      margin: "20px auto",  // Centers the alert horizontally
       padding: "10px",
-      width: "100%",
+      width: "50%",         // Controls the width
+      maxWidth: "400px",    // Prevents it from being too wide
+      minWidth: "250px",    // Prevents it from being too narrow
       boxSizing: "border-box",
+      display: "block",     // Ensures it's treated as a block element
     };
   };
 

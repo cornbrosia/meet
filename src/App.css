@@ -75,11 +75,29 @@
   text-align: center;
 }
 
-.error-alert {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
+.alert {
+  border-width: 2px;
+  border-style: solid;
+  font-weight: bolder;
+  border-radius: 7px;
   text-align: center;
+  font-size: 12px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+/* Info Alert Styling */
+.info-alert {
+  color: rgb(0, 0, 255); /* Blue text */
+  background-color: rgb(220, 220, 255); /* Light blue background */
+  border-color: rgb(0, 0, 255); /* Blue border */
+}
+
+/* Error Alert Styling */
+.error-alert {
+  color: rgb(255, 0, 0); /* Red text */
+  background-color: rgb(255, 220, 220); /* Light red background */
+  border-color: rgb(255, 0, 0); /* Red border */
 }
 
 

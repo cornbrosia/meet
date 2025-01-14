@@ -15,6 +15,7 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [errorAlert, setErrorAlert] = useState("");
   const [infoAlert, setInfoAlert] = useState("");
+  const [WarningAlert, setWarningAlert] = useState ("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,10 +31,21 @@ const App = () => {
         console.error("Error fetching events:", error);
       }
     };
-    
-
+  
+    // 🌐 Check if the user is online or offline
+    if (navigator.onLine) {
+      // ✅ Online: Clear any warning messages
+      setWarningAlert("");
+    } else {
+      // ⚠️ Offline: Show a warning message
+      setWarningAlert("You are currently offline. Displaying cached events.");
+    }
+  
+    // 🚀 Fetch data (either from API or localStorage depending on the connection)
     fetchData();
   }, [currentCity, currentNOE]);
+  
+  
 
   return (
     <div className="App">

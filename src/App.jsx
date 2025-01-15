@@ -5,7 +5,7 @@ import NumberOfEvents from './components/NumberOfEvents';
 import { useEffect, useState } from 'react';
 import { extractLocations, getEvents } from './api';
 import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
-
+import CityEventsChart from './components/CityEventsChart';
 import React from 'react';
 
 const App = () => {
@@ -39,6 +39,7 @@ const App = () => {
     } else {
       // ⚠️ Offline: Show a warning message
       setWarningAlert("You are currently offline. Displaying cached events.");
+      console.log("Warning Here");
     }
   
     // 🚀 Fetch data (either from API or localStorage depending on the connection)
@@ -52,17 +53,21 @@ const App = () => {
       <div className="alerts-container">
        {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
        {warningAlert && <WarningAlert text={warningAlert} />}
-
+       {errorAlert && <ErrorAlert text={errorAlert} />}
      </div>
-      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
+      <CitySearch 
+      allLocations={allLocations} 
+      setCurrentCity={setCurrentCity} 
+      setInfoAlert={setInfoAlert} />
       <NumberOfEvents
         currentNOE={currentNOE}
         setCurrentNOE={setCurrentNOE}
         setErrorAlert={setErrorAlert}
       />
+      <CityEventsChart allLocations={allLocations} events={events} />
       <EventList events={events} />
       
-      {errorAlert && <ErrorAlert text={errorAlert} />}
+      
 
     </div>
   );

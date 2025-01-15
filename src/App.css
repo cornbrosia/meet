@@ -102,3 +102,22 @@
   flex-direction: column;
   gap: 15px; /* Space between events */
 }
+
+/* Add this to src/App.css */
+
+/* Grid layout for larger screens */
+.charts-container {
+  display: grid;                      /* Enable grid layout */
+  grid-template-columns: 1fr 1fr;    /* Two equal-width columns */
+  gap: 20px;                         /* Space between charts */
+  padding: 20px;                     /* Inner spacing */
+  align-items: start;                /* Align items to the top */
+}
+
+/* Responsive layout for screens 768px and smaller */
+@media (max-width: 768px) {
+  .charts-container {
+    grid-template-columns: 1fr;      /* Stack items vertically */
+  }
+}
+
